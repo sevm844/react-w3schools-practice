@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Example</h1>
+<p>Without using template strings:</p>
+<div id="demo"></div>
+<script>
+const name = "John";
+const age = 30;
+const message = "Hello, " + name + "!\n" + 
+"You are " + age + " years old.";
+document.getElementById("demo").innerHTML = message;
+</script>
+
+<h1>Example</h1>
+<p>With template strings you can write strings that span multiple lines and include embedded expressions:</p>
+<div id="demoq"></div>
+<script>
+const nameq = "John";
+const ageq = 30;
+const messageq = `Hello, ${nameq}!
+You are ${ageq} years old.`;
+document.getElementById("demoq").innerHTML = messageq;
+</script>
+
+<h1>Example</h1>
+<p>With template strings you can write strings that span multiple lines:</p>
+<div id="demow"></div>
+<script>
+const html = `
+  <div>
+    <h1>Title</h1>
+    <p>Paragraph</p>
+  </div>
+`;
+document.getElementById("demow").innerHTML = html;
+</script>
+
+<h1>Example</h1>
+<p>With template strings, the indentation is part of the string.</p>
+<p>This is not visible for most HTML elements, but the PRE element preservers any spaces and new lines:</p>
+<pre id="demoe"></pre>
+<script>
+const x = `
+  John:
+    Hello, how are you?
+  Jane:
+    I'm fine, thanks!
+`;
+document.getElementById("demoe").innerHTML = x;
+</script>
+
+<h1>Example</h1>
+<p>With template strings you can add variables inside ${} brackets:</p>
+<div id="demor"></div>
+<script>
+let firstNamer = "John";
+let lastNamer = "Doe";
+let textr = `Welcome ${firstNamer}, ${lastNamer}!`;
+document.getElementById("demor").innerHTML = textr;
+</script>
+
+<h1>Example</h1>
+<p>With template strings you can execute expressions inside ${} brackets:</p>
+<div id="demot"></div>
+<script>
+let price = 10;
+let quantity = 5;
+let total = `Total: ${price * quantity}`;
+document.getElementById("demot").innerHTML = total;
+</script>
+
+<h1>Example</h1>
+<p>You can use the Array.map() function inside a template string:</p>
+<div id="demoy"></div>
+<script>
+const items = ["apple", "banana", "orange"];
+const list = `You have ${items.length} items:
+${items.map(item => `- ${item}`).join('\n')}`;
+document.getElementById("demoy").innerHTML = list;
+</script>
+
+<h1>Example</h1>
+<p>You can use the ternary operator inside a template string:</p>
+<div id="demoa"></div>
+<script>
+const isAdmin = true;
+const messagea = `Status: ${isAdmin ? 'Admin' : 'User'}`;
+document.getElementById("demoa").innerHTML = messagea;
+</script>
+
+<h1>Example</h1>
+<p>You can use the tagged template inside a template string:</p>
+<div id="demos"></div>
+<script>
+function highlight(strings, fname) {
+  let x = fname.toUpperCase();
+  return strings[0] + x + strings[1];
+}
+let names = "John";
+let text = highlight`Hello ${names}, how are you?`;
+document.getElementById("demos").innerHTML = text;
+</script>
+
+<h1>Example</h1>
+<p>Note that the first argument, strings , now holds 3 items:</p>
+<div id="demod"></div>
+<script>
+function highlight(strings, fname1, fname2) {
+  let xd = fname1.toUpperCase();
+  let yd = fname2.toUpperCase();
+  return strings[0] + xd + strings[1] + yd + strings[2];
+}
+let name11 = "John";
+let name21 = "Jane";
+let textd = highlight`Hello ${name11} and ${name21}, how are you?`;
+document.getElementById("demod").innerHTML = textd;
+</script> 
+
+<h1>Example</h1>
+<p>Note that the second argument uses the rest syntax, ...fname, and now holds the two expressions as an array:</p>
+<div id="demof"></div>
+<script>
+function highlight(strings, ...fname) {
+  let xf = fname[0].toUpperCase();
+  let yf = fname[1].toUpperCase();
+  return strings[0] + xf + strings[1] + yf + strings[2];
+}
+let name1f = "John";
+let name2f = "Jane";
+let textf = highlight`Hello ${name1f} and ${name2f}, how are you?`;
+document.getElementById("demof").innerHTML = textf;
+</script>
+
+</body>
+</html>
